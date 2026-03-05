@@ -1,0 +1,19 @@
+{
+  "type": "Document",
+  "comments": [],
+  "title": {
+    "type": "DocumentTitle",
+    "value": "Frontmatter Test"
+  },
+  "contents": [
+    {
+      "type": "Paragraph",
+      "contents": [
+        {
+          "type": "Text",
+          "value": "This is a document with frontmatter metadata. "
+        }
+      ]
+    }
+  ]
+}

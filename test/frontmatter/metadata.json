@@ -1,0 +1,9 @@
+{
+  "frontmatter": {
+    "id": "GAP-2001",
+    "revision": "DRAFT",
+    "status": "proposal",
+    "authors": "Mark Larah",
+    "discussion": "https://github.com/graphql/graphql-spec/issues/1185"
+  }
+}

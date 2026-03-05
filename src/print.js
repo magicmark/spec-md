@@ -11,6 +11,7 @@ function print(ast, _options) {
     biblio: _options && _options.biblio && buildBiblio(_options.biblio) || {},
     head: _options && _options.head || '',
     includeComments: _options && _options.includeComments || false,
+    frontmatter: _options && _options.frontmatter || null,
   };
   validateSecIDs(ast, options);
   assignExampleNumbers(ast, options);
@@ -106,6 +107,7 @@ function printHead(ast, options) {
 function printBody(ast, options) {
   return (
     '<article' + dataSourceBaseAttr(ast, options) + '>\n' +
+      printFrontmatter(options) +
       '<header>\n' +
         printTitle(ast) +
         printIntro(ast, options) +
@@ -118,6 +120,26 @@ function printBody(ast, options) {
       'Written in <a href="https://spec-md.com" target="_blank">Spec Markdown</a>.' +
     '</footer>\n' +
     printSidebar(ast, options)
+  );
+}
+
+function printFrontmatter(options) {
+  const frontmatter = options.frontmatter;
+  if (!frontmatter || typeof frontmatter !== 'object' || Object.keys(frontmatter).length === 0) {
+    return '';
+  }
+  const entries = Object.entries(frontmatter).map(([key, value]) => {
+    const escapedKey = escape(key);
+    const isURL = typeof value === 'string' && /^https?:\/\//.test(value);
+    const escapedValue = isURL
+      ? '<a href="' + encodeURI(value) + '">' + escape(value.replace(/^https?:\/\//, '')) + '</a>'
+      : escape(String(value));
+    return '<div><span class="spec-frontmatter-key">' + escapedKey + ':</span> ' + escapedValue + '</div>\n';
+  });
+  return (
+    '<div class="spec-frontmatter">\n' +
+      join(entries) +
+    '</div>\n'
   );
 }
 
