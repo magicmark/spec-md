@@ -659,6 +659,13 @@ pre {
   }
 }
 
+@media (min-width: 1220px) {
+  pre,
+  .spec-note {
+    max-width: calc(100% + 2rem);
+  }
+}
+
 .spec-example {
   background: var(--color-spec-example);
   border-left: solid 4px var(--color-spec-example-border);

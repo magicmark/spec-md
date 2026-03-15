@@ -1,0 +1,29 @@
+{
+  "type": "Document",
+  "comments": [],
+  "title": {
+    "type": "DocumentTitle",
+    "value": "Long Code Block"
+  },
+  "contents": [
+    {
+      "type": "Section",
+      "header": {
+        "type": "Header",
+        "level": 1,
+        "secID": null,
+        "title": "Section"
+      },
+      "contents": [
+        {
+          "type": "Code",
+          "raw": false,
+          "lang": null,
+          "example": false,
+          "counter": false,
+          "code": "{\"id\": \"example-1\", \"name\": \"A very long example name that demonstrates a code block which is wider than the content area when the sidebar is visible at wide viewport widths above 1220px where the body has padding-right of 345px for the sidebar\"}\n"
+        }
+      ]
+    }
+  ]
+}

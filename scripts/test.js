@@ -27,6 +27,7 @@ runTests([
   testSource('definitions'),
   testSource('comments'),
   ['test/comments/input.md', 'test/comments/ast.json', 'test/comments/output-comments.html', '--includeComments'],
+  testSource('long-code-block'),
 ]);
 
 function runTests(tests) {
